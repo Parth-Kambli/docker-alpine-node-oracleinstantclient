@@ -13,7 +13,7 @@ RUN printf "https://uk.alpinelinux.org/alpine/v3.9/main\nhttps://uk.alpinelinux.
 
 RUN apk add --no-cache libaio libc6-compat
 
-RUN apk add --update libnsl libc6-compact gcompact
+RUN apk add --update libnsl libc6-compat gcompat
 
 
 # Oracle Client configure
