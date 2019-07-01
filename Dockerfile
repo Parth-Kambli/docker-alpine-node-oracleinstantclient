@@ -12,9 +12,7 @@ RUN printf "https://uk.alpinelinux.org/alpine/v3.9/main\nhttps://uk.alpinelinux.
 # RUN printf "https://ewr.edge.kernel.org/alpine/v3.9/main\nhttps://ewr.edge.kernel.org/alpine/v3.9/community\n" > /etc/apk/repositories
 
 RUN apk add --no-cache libaio libc6-compat
-
 RUN apk add --update libnsl libc6-compat gcompat
-
 
 # Oracle Client configure
 ENV ORACLE_BASE /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}
@@ -31,5 +29,6 @@ RUN unzip instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}.zip && \
 RUN ln /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}/libclntsh.so.${ORACLE_MAJOR_VER}.1 /usr/lib/libclntsh.so && \
     ln /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}/libocci.so.${ORACLE_MAJOR_VER}.1 /usr/lib/libocci.so && \
     ln /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}/libociei.so /usr/lib/libociei.so && \
-    ln /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}/libnnz${ORACLE_MAJOR_VER}.so /usr/lib/libnnz${ORACLE_MAJOR_VER}.so && \
-    ln -s /usr/lib/libnsl.so.2 /usr/lib/libnsl.so.1
+    ln /usr/lib/instantclient_${ORACLE_MAJOR_VER}_${ORACLE_MINOR_VER}/libnnz${ORACLE_MAJOR_VER}.so /usr/lib/libnnz${ORACLE_MAJOR_VER}.so
+
+RUN ln -s /usr/lib/libnsl.so.2 /usr/lib/libnsl.so.1
